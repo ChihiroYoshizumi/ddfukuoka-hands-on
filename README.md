@@ -42,6 +42,10 @@ npm run build      # prebuild migrates + seeds, then builds the static site
 npm run preview
 ```
 
+## Filtering games
+
+The home page lets you filter games by one or more categories (OR) and by publisher; the two filters combine (AND). Filtering runs client-side over the prerendered cards (`src/components/GameFilters.astro`), and `getFilteredGames` in `src/lib/games.ts` provides the equivalent data-layer query.
+
 ## Database
 
 The SQLite database is built from `db/games.csv` — there is no live data to migrate. An optional `Rating` column set to `none` seeds a game with no star rating; other games get a deterministic rating derived from the title.
