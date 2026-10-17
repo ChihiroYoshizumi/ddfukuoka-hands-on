@@ -25,3 +25,14 @@ test.describe('Home Page', () => {
     await expect(page.getByText('Find your next game! And maybe even back one! Explore our collection!')).toBeVisible();
   });
 });
+
+test.describe('Home Page game card ratings', () => {
+  test('every game card shows a rating or the no-rating placeholder', async ({ page }) => {
+    await page.goto('/');
+    const cards = page.getByTestId('game-card');
+    await expect(cards.first()).toBeVisible();
+    for (const card of await cards.all()) {
+      await expect(card.getByTestId('game-card-rating')).toHaveText(/^(★ \d\.\d \/ 5|No rating yet)$/);
+    }
+  });
+});
