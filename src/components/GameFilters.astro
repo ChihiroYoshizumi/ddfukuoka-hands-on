@@ -1,9 +1,13 @@
 ---
 import type { Category, Publisher } from '../types/game';
 
+/** Props for the game filter controls. */
 interface Props {
+    /** Categories offered as checkboxes. */
     categories: Category[];
+    /** Publishers offered in the select. */
     publishers: Publisher[];
+    /** Total number of games, used for the initial count text. */
     total: number;
 }
 
@@ -73,6 +77,7 @@ const focus = 'focus:ring-2 focus:ring-blue-500 focus:outline-none';
         const publisher = form.querySelector<HTMLSelectElement>('select[name="publisher"]')!;
         const checkboxes = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="category"]'));
 
+        /** Shows only cards matching the selected categories and publisher, then updates the count. */
         const apply = (): void => {
             const selected = new Set(checkboxes.filter((c) => c.checked).map((c) => c.value));
             let visible = 0;
