@@ -9,7 +9,7 @@ import {
     gameDescription,
     parseGamesCsv,
     publisherDescription,
-    ratingFromTitle,
+    seedRating,
     uniqueCategories,
     uniquePublishers,
 } from './transforms';
@@ -65,7 +65,7 @@ export async function seedDatabase(db: Database, csvPath: string = join(here, 'g
         await db.insert(games).values({
             title: row.title,
             description: gameDescription(row.description),
-            starRating: ratingFromTitle(row.title),
+            starRating: seedRating(row),
             categoryId: categoryIds.get(row.category)!,
             publisherId: publisherIds.get(row.publisher)!,
         });

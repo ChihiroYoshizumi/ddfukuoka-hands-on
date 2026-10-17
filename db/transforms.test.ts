@@ -8,6 +8,7 @@ import {
     uniqueCategories,
     uniquePublishers,
     ratingFromTitle,
+    seedRating,
     type GameCsvRow,
 } from './transforms';
 
@@ -49,7 +50,14 @@ describe('parseGamesCsv', () => {
             category: 'Strategy',
             publisher: 'Pub One',
             description: 'Desc A',
+            unrated: false,
         });
+    });
+
+    it('marks rows with Rating=none as unrated', () => {
+        const rows = parseGamesCsv('Title,Category,Publisher,Description,Rating\n"G","C","P","D",none');
+        expect(rows[0].unrated).toBe(true);
+        expect(seedRating(rows[0])).toBeNull();
     });
 
     it('skips rows without a title', () => {
@@ -80,9 +88,9 @@ describe('description helpers', () => {
 
 describe('dedupe helpers', () => {
     const rows: GameCsvRow[] = [
-        { title: 'A', category: 'Strategy', publisher: 'P1', description: '' },
-        { title: 'B', category: 'Puzzle', publisher: 'P1', description: '' },
-        { title: 'C', category: 'Strategy', publisher: 'P2', description: '' },
+        { title: 'A', category: 'Strategy', publisher: 'P1', description: '', unrated: false },
+        { title: 'B', category: 'Puzzle', publisher: 'P1', description: '', unrated: false },
+        { title: 'C', category: 'Strategy', publisher: 'P2', description: '', unrated: false },
     ];
 
     it('returns distinct categories in first-seen order', () => {
