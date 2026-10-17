@@ -44,7 +44,7 @@ npm run preview
 
 ## Database
 
-The SQLite database is built from `db/games.csv` — there is no live data to migrate.
+The SQLite database is built from `db/games.csv` — there is no live data to migrate. An optional `Rating` column set to `none` seeds a game with no star rating; other games get a deterministic rating derived from the title.
 
 ```bash
 npm run db:generate   # generate a migration after editing db/schema.ts

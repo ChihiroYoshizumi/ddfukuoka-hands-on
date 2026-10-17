@@ -1,4 +1,4 @@
-Title,Category,Publisher,Description
+Title,Category,Publisher,Description,Rating
 "DevOps Dominion","Strategy","CodeForge Studios","In DevOps Dominion, strategic planning meets advanced deployment tactics in a fast-paced battlefield of code. Mona leads your team of digital warriors through orchestrated pipelines and microservice skirmishes, ensuring every command brings a competitive edge."
 "Pipeline Conquest","Strategy","DevMasters Inc.","Pipeline Conquest challenges players to optimize continuous integration workflows while countering unforeseen system failures. With Mona by your side, organize automated builds and deployment pipelines in real time to secure lasting digital victory."
 "Server Siege","Strategy","GitHub Games","Server Siege throws you into the midst of a digital fortress under siege by relentless cyber threats. As Mona rallies your defense, you'll coordinate load-balancers and version controls to fortify your network stronghold."
@@ -20,3 +20,4 @@ Title,Category,Publisher,Description
 "Repo Rampart","Action","GitHub Games","Repo Rampart immerses you in adrenaline-charged defense missions where every command must protect your precious codebases. With Mona leading your strategy, prevent intrusions and execute swift countermeasures in electrifying action sequences."
 "Syntax Smashdown","Action","Ops Interactive","Syntax Smashdown offers an exhilarating arcade experience where rapid coding reflexes determine the outcome of explosive digital battles. Guided by the fearless Mona, your mission is to knock out glitches and secure the high-score in a realm where syntax is the ultimate weapon."
 "Cloud Conqueror","Action","CodeForge Studios","Cloud Conqueror thrusts you into a high-stakes aerial battle against rogue cloud services. With Mona as your co-pilot, navigate through stormy skies and outmaneuver digital adversaries in a quest to reclaim control over your virtual domain."
+"Merge Conflict Quest","Adventure","DevMasters Inc.","Merge Conflict Quest sends Mona through branching dungeons where every fork hides a clash to resolve. Pick your side carefully, because one bad rebase can undo the whole run.",none

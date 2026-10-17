@@ -9,6 +9,8 @@ export interface GameCsvRow {
     category: string;
     publisher: string;
     description: string;
+    /** Optional `Rating` column: `none` seeds the game without a rating. */
+    unrated: boolean;
 }
 
 const CROWDFUNDING_BLURB = ' Support this game through our crowdfunding platform!';
@@ -92,6 +94,7 @@ export function parseGamesCsv(content: string): GameCsvRow[] {
             category: row.Category.trim(),
             publisher: row.Publisher.trim(),
             description: row.Description.trim(),
+            unrated: (row.Rating ?? '').trim().toLowerCase() === 'none',
         }));
 }
 
@@ -130,4 +133,9 @@ export function ratingFromTitle(title: string): number {
     // 21 buckets -> 3.0, 3.1, ... 5.0
     const tenths = hash % 21;
     return Math.round((3.0 + tenths / 10) * 10) / 10;
+}
+
+/** Star rating to seed for a CSV row: `null` for unrated games, otherwise derived from the title. */
+export function seedRating(row: GameCsvRow): number | null {
+    return row.unrated ? null : ratingFromTitle(row.title);
 }
